@@ -39,3 +39,6 @@
 
 # debug information files
 *.dwo
+/JiPP/FirstHomework/.vs
+/JiPP/FirstHomework/ARM64/Debug
+/JiPP/FirstHomework/test/ARM64/Debug
