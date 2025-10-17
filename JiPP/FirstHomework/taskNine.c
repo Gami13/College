@@ -37,7 +37,7 @@ int main(int argc, _TCHAR *argv[]) {
 
     // Tutaj dodalem zmiany
     // printf("Brak pierwiastkow rzeczywistych: D = %e  < 0.\n", D);
-    double r1, u1, r2, u2 = 0.0;
+    double r1 = 0.0, u1 = 0.0, r2 = 0.0, u2 = 0.0;
     r1 = -(b / (2 * a));
     u1 = sqrt(fabs(pow(b / (2 * a), 2.0) - (c / a)));
     r2 = -(b / (2 * a));

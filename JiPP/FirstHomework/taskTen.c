@@ -22,18 +22,17 @@ int main(int argc, _TCHAR *argv[]) {
     return 1;
   }
   if (a <= 0) {
-    printf("Bok nie moze byc zerowy lub mniejszy: a < 0.\n");
+    printf("Bok nie moze byc zerowy lub mniejszy: a <= 0.\n");
     return 1;
   }
   if (b <= 0) {
-    printf("Bok nie moze byc zerowy lub mniejszy: b < 0.\n");
+    printf("Bok nie moze byc zerowy lub mniejszy: b <= 0.\n");
     return 1;
   }
   if (c <= 0) {
-    printf("Bok nie moze byc zerowy lub mniejszy: c < 0.\n");
+    printf("Bok nie moze byc zerowy lub mniejszy: c <= 0.\n");
     return 1;
   }
-
   if ((a + b - c < -DOUBLE_EPSILON) || (a + c - b < -DOUBLE_EPSILON) ||
       (b + c - a < -DOUBLE_EPSILON)) {
     printf("Nie istnieje trojkat o podanych bokach.\n");

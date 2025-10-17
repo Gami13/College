@@ -11,7 +11,7 @@ int main(void) {
   int k = 2;
   int m = 4;
 
-  double w1 = cbrt(x / (y * z)) * log(pow(x, 2) + pow(y, 2));
+  double w1 = cbrt(x / (y * z)) * log(x * x + y * y);
   double w2 = sin(k * (x / 2)) * cos(m * y) + y * exp(2 * x - 1);
   double w3 = fabs(x / (2.0 * y * y + 1.0)) + sqrt(y / (z * z + 3.0)) +
               (5.0 * pow(y + z, 3.0));
