@@ -1,0 +1,17 @@
+-Wall
+-Wextra
+-Wpedantic
+-Wconversion
+-Wshadow
+-Wpointer-arith
+-Wcast-qual
+-Wstrict-prototypes
+-Wwrite-strings
+-Waggregate-return
+-Wmissing-prototypes
+-Wmissing-declarations
+-Wswitch-enum
+-Wuninitialized
+-Wfloat-equal
+-Wundef
+-lm
