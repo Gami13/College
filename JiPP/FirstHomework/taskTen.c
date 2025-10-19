@@ -3,7 +3,6 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <tchar.h>
-#pragma warning(disable : 4996)
 
 // Zad 10. Dane są a,b,c - długości boków trójkąta. Sprawdzić warunek istnienia
 // trójkąta: https://pl.wikipedia.org/wiki/Nierówność_trójkąta Obliczyć pole
@@ -13,6 +12,8 @@
 #define DOUBLE_EPSILON 1e-12
 
 int main(int argc, _TCHAR *argv[]) {
+  (void)argc;
+  (void)argv;
   double a = 0.0, b = 0.0, c = 0.0;
   int ret = -1;
   printf("Podaj a,b,c (boki trojkata)\n");

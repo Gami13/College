@@ -1,13 +1,14 @@
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <tchar.h>
-#pragma warning(disable : 4996)
 
 // Zad 11. Dane są cztery liczby całkowite a,b,c,d. Znaleźć wśród nich liczbę
 // największą i wydrukować jej wartość i pozycję przyjmując, że dla a(pozycja =
 // 1), b(pozycja = 2) itd. (nie wprowadzać zmiennej indeksowanej).
 
 int main(int argc, _TCHAR *argv[]) {
+  (void)argc;
+  (void)argv;
   int a = 0, b = 0, c = 0, d = 0;
   int ret = -1;
   printf("Podaj a,b,c,d\n");

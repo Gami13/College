@@ -8,6 +8,8 @@ static void my_return(void);
 // Zad 9. W przykładzie WW4.pdf rozszerzyć program o wyznaczanie pierwiastków
 // równia dla delta < 0 (liczby zespolone).Przyjmijmy oznaczenia
 int main(int argc, _TCHAR *argv[]) {
+  (void)argc;
+  (void)argv;
   double a = 0.0, b = 0.0, c = 0.0;
   int ret = -1;
   // input data

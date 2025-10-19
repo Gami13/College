@@ -2,9 +2,6 @@
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <tchar.h>
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
 
 // Zad 12. Napisać program, który będzie obliczał pole powierzchni oraz obwód
 // takich figur jak: trójkąt, kwadrat, prostokąt, koło. Dla trójkąta sprawdzić
