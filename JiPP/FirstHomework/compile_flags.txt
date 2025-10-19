@@ -15,3 +15,9 @@
 -Wfloat-equal
 -Wundef
 -lm
+-Wformat=2
+-pedantic
+-Wdouble-promotion
+-Wimplicit-fallthrough
+-Wstrict-overflow
+-Wswitch-enum
