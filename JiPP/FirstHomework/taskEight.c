@@ -20,7 +20,13 @@ static void w1(double x, double y, double z) {
     exit(1);
   }
 
-  double result = pow(x / (y * z), 1.0 / 3.0) * log(logInput);
+  double root = x / (y * z);
+  if (root < 0.0) {
+    printf("Blad: pierwiastek z liczby ujemnej w wyrazeniu w1\n");
+    exit(1);
+  }
+
+  double result = pow(root, 1.0 / 3.0) * log(logInput);
   printf("w1 = %.8lf \n", result);
 }
 
@@ -62,8 +68,20 @@ static void w4(double x, double y, double z, int k) {
     exit(1);
   }
 
-  double result = (x / denom) * pow(z + 1, 1.0 / 3.0) +
-                  pow(x * x + z * z + 1.0, 1.0 / k) - fabs(y);
+  double rootInput = z + 1.0;
+  if (rootInput < 0.0) {
+    printf("Blad: pierwiastek z liczby ujemnej w wyrazeniu w4\n");
+    exit(1);
+  }
+
+  double root2input = x * x + z * z + 1.0;
+  if (root2input < 0.0 && k > 1.0) {
+    printf("Blad: pierwiastek z liczby ujemnej w wyrazeniu w4\n");
+    exit(1);
+  }
+
+  double result = (x / denom) * pow(rootInput, 1.0 / 3.0) +
+                  pow(root2input, 1.0 / k) - fabs(y);
   printf("w4 = %.8lf \n", result);
 }
 
