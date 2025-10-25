@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define _USE_MATH_DEFINES
 #include <math.h>
-
+#define DOUBLE_EPSILON 1e-12
 void kolo(double r, double *w1, double *w2);
 
 int main(void) {
@@ -12,8 +12,12 @@ int main(void) {
     printf("Blad podczas wczytywania danych.\n");
     return 1;
   }
-  if (r < 0) {
-    printf("Promien nie moze byc ujemny.\n");
+  if (isnan(r)) {
+    printf("Blad podczas wczytywania danych.\n");
+    return 1;
+  }
+  if (r <= DOUBLE_EPSILON) {
+    printf("Promien nie moze byc ujemny lub rowny zero.\n");
     return 1;
   }
 

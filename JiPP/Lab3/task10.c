@@ -10,7 +10,7 @@ int main(void) {
     printf("Blad podczas wczytywania danych.\n");
     return 1;
   }
-
+  printf("Przed zamiana: x = %d, y = %d\n", x, y);
   zamien(&x, &y);
   printf("Po zamianie: x = %d, y = %d\n", x, y);
 

@@ -15,6 +15,10 @@ int main(void) {
     printf("Liczba krazkow musi byc dodatnia.\n");
     return 1;
   }
+  if (N == 0) {
+    printf("Nie ma nic do zrobienia");
+    return 0;
+  }
   hanoi(N, 'A', 'B', 'C');
 
   return 0;
