@@ -8,7 +8,9 @@ int main(void) {
   int a_count = 0, b_count = 0, c_count = 0, other_count = 0;
   while (1) {
     printf("Podaj znak (wpisz 'e' aby zakończyć): ");
-    scanf(" %c", &znak);
+    if (scanf(" %c", &znak) != 1) {
+      break;
+    }
     if (znak == 'e') {
       break;
     }

@@ -1,6 +1,4 @@
 #include <stdio.h>
-#define _USE_MATH_DEFINES
-#include <math.h>
 // Utwórz plik tekstowy z wiadomością : "I <3 programming".Napisz program, który
 // będzie odczytywał wiadomość z pliku po jednym znaku i wyświetlał ją na
 // ekranie.Skorzystaj z pętli while.Podpowiedź : sprawdź jakie wartości zwraca

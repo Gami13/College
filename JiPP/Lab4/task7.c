@@ -7,7 +7,9 @@ int main(void) {
   char znak;
   while (1) {
     printf("Podaj znak (wpisz 'e' aby zakończyć): ");
-    scanf(" %c", &znak);
+    if (scanf(" %c", &znak) != 1) {
+      break;
+    }
     if (znak == 'e') {
       break;
     }
