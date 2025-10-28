@@ -96,10 +96,10 @@ int main(void) {
     return 1;
   }
 
-  const char *header = "        x |     f_szereg(x) |      f_scisle(x) | "
-                       "liczba wyrazow | warunek stopu";
-  const char *separator = "----------+-----------------+------------------+----"
-                          "------------+---------------";
+  const char *header = "        x  |     f_szereg(x)  |      f_scisle(x) | "
+                       "liczba wyrazow   | warunek stopu";
+  const char *separator = "-----------+------------------+------------------+--"
+                          "----------------+---------------";
   printf("%s\n%s\n", header, separator);
   fprintf(out, "%s\n%s\n", header, separator);
 
@@ -112,8 +112,12 @@ int main(void) {
 
     SeriesResult approx = compute_series(x, epsilon, max_terms);
     double exact = pow(1.0 - x, -0.25);
-    const char *stop_condition =
-        approx.reached_accuracy ? "epsilon" : "max_terms";
+    const char *stop_condition = "max_terms";
+    if (approx.reached_accuracy && approx.terms_used == max_terms) {
+      stop_condition = "epsilon_at_max";
+    } else if (approx.reached_accuracy) {
+      stop_condition = "epsilon";
+    }
 
     printf("%10.6f | %16.10f | %16.10f | %16d | %s\n", x, approx.sum, exact,
            approx.terms_used, stop_condition);
