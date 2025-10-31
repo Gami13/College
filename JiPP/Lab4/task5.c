@@ -18,9 +18,14 @@ int main(void) {
   }
   if (n < 0) {
     printf("Silnia nie jest zdefiniowana dla liczb ujemnych.\n");
-  } else {
-    unsigned long long wynik = silnia(n);
-    printf("Silnia %d wynosi: %llu\n", n, wynik);
+    return 1;
   }
+  if (n > 20) {
+    printf("Silnia dla n > 20 nie miesci sie w unsigned long long.\n");
+    return 1;
+  }
+  unsigned long long wynik = silnia(n);
+  printf("Silnia %d wynosi: %llu\n", n, wynik);
+
   return 0;
 }
