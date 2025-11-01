@@ -1,2 +1,0 @@
-[*.{c++,cc,cpp,cxx,h,h++,hh,hpp,hxx,inl,ipp,tlh,tli}]
-cpp_new_line_before_open_brace_block = same_line
