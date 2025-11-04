@@ -14,6 +14,7 @@
 // Szereg: 1 - (1/4)x + (1*5/4*8)x^2 - (1*5*9/4*8*12)x^3 + ...
 // przedzial abs(x)<1
 // previous = 1/4, current = previous * 5/8 * x, next = current * 9/12 * x
+
 #define _USE_MATH_DEFINES
 #include <math.h>
 #include <stdbool.h>
@@ -113,9 +114,10 @@ int main(void) {
   }
 
   const char *header = "         x |      f_szereg(x) |      f_scisle(x) |   liczba wyrazow |     warunek stopu";
-  const char *separator = "-----------+------------------+------------------+------------------+-------------------";
-  printf("%s\n%s\n", header, separator);
-  fprintf(out, "%s\n%s\n", header, separator);
+  const char *separator =
+      "-----------+------------------+------------------+------------------+--------------------------";
+  printf("%s\n%s\n%s\n", separator, header, separator);
+  fprintf(out, "%s\n%s\n%s\n", separator, header, separator);
 
   double step = (b - a) / (double)n;
   for (int i = 0; i <= n; ++i) {
