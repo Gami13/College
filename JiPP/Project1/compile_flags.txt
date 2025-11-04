@@ -20,4 +20,5 @@
 -Wdouble-promotion
 -Wimplicit-fallthrough
 -Wstrict-overflow
+-std=c99
 -Wswitch-enum

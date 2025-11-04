@@ -9,7 +9,7 @@ $BaseName = [System.IO.Path]::GetFileNameWithoutExtension($CFile)
 $ExeName = "$BaseName.exe"
 
 # The compilation command (replacing program with the derived executable name)
-$CompileCommand = "clang -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wwrite-strings -Waggregate-return -Wmissing-prototypes -Wmissing-declarations -Wswitch-enum -Wuninitialized -Wfloat-equal -Wundef -lm -o $ExeName $CFile"
+$CompileCommand = "clang -Wall -Wextra -Wpedantic -Wconversion -Wshadow -Wpointer-arith -Wcast-qual -Wstrict-prototypes -Wwrite-strings -Waggregate-return -Wmissing-prototypes -Wmissing-declarations -Wswitch-enum -Wuninitialized -Wfloat-equal -Wundef -std=c99 -lm -o $ExeName $CFile"
 
 Write-Host "Compiling $CFile to $ExeName..."
 

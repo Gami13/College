@@ -14,26 +14,22 @@
 // Szereg: 1 - (1/4)x + (1*5/4*8)x^2 - (1*5*9/4*8*12)x^3 + ...
 // przedzial abs(x)<1
 // previous = 1/4, current = previous * 5/8 * x, next = current * 9/12 * x
-
+#define _USE_MATH_DEFINES
 #include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
+
+typedef enum { HIT_ACCURACY = 0, MAX_TERMS = 1, BOTH = 2 } StopReason;
+const char *stopReasonText[] = {"osiagnieto dokladnosc", "maksymalna ilosc wyrazow",
+                                "osiagnieto dokladnosc i maksymalna ilosc wyrazow"};
 typedef struct {
   double sum;
-  bool hitAccuracy;
-  bool hitMaxTerms;
   int termsUsed;
+  StopReason reason;
 } SeriesResult;
-///
-/// @warning x musi byc mniejsze od 1 poniewaz w przeciwnym wypadku w rownaniu f(x) = (1-x)^(-1/4) bedzie pierwiastek
-/// czwartego stopnia z liczby ujemnej
-///
+
 static double f_scisle(double x) { return pow(1.0 - x, -0.25); }
 
-///
-/// @warning x musi byc mniejsze od 1 poniewaz w przeciwnym wypadku w rownaniu f(x) = (1-x)^(-1/4) bedzie pierwiastek
-/// czwartego stopnia z liczby ujemnej
-///
 static SeriesResult f_szereg(double x, double epsilon, int maxTerms) {
   double numeratorLastNumber = 1.0;
   double denominatorLastNumber = 4.0;
@@ -53,7 +49,14 @@ static SeriesResult f_szereg(double x, double epsilon, int maxTerms) {
     numeratorLastNumber += 4.0;
     denominatorLastNumber += 4.0;
   }
-  return (SeriesResult){sum, hitAccuracy, terms == maxTerms, terms};
+
+  StopReason stop_condition = MAX_TERMS;
+  if (hitAccuracy && terms == maxTerms) {
+    stop_condition = BOTH;
+  } else if (hitAccuracy) {
+    stop_condition = HIT_ACCURACY;
+  }
+  return (SeriesResult){sum, terms, stop_condition};
 }
 
 int main(void) {
@@ -122,16 +125,12 @@ int main(void) {
     }
 
     SeriesResult approx = f_szereg(x, epsilon, max_terms);
-    const char *stop_condition = "maksymalna ilosc wyrazowe";
-    if (approx.hitAccuracy && approx.hitMaxTerms) {
-      stop_condition = "osiagnieto dokladnosc i maksymalna ilosc wyrazow";
-    } else if (approx.hitAccuracy) {
-      stop_condition = "osiagnieto dokladnosc";
-    }
-
     double exact = f_scisle(x);
-    printf("%10.6f | %16.10f | %16.10f | %16d | %s\n", x, approx.sum, exact, approx.termsUsed, stop_condition);
-    fprintf(out, "%10.6f | %16.10f | %16.10f | %16d | %s\n", x, approx.sum, exact, approx.termsUsed, stop_condition);
+
+    printf("%10.6f | %16.10f | %16.10f | %16d | %s\n", x, approx.sum, exact, approx.termsUsed,
+           stopReasonText[approx.reason]);
+    fprintf(out, "%10.6f | %16.10f | %16.10f | %16d | %s\n", x, approx.sum, exact, approx.termsUsed,
+            stopReasonText[approx.reason]);
   }
 
   fclose(out);
