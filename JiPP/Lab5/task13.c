@@ -1,8 +1,6 @@
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
-// 13. Znajdź pozycję wybranego znaku w tekście.
+// 13. Znajdz pozycje wybranego znaku w tekscie.
 
 int main(void) {
   char text[] = "Hello, World!";
@@ -19,7 +17,7 @@ int main(void) {
   if (position != -1) {
     printf("Znak '%c' znaleziony na pozycji: %d\n", target, position);
   } else {
-    printf("Znak '%c' nie znaleziony w tekście.\n", target);
+    printf("Znak '%c' nie znaleziony w tekscie.\n", target);
   }
 
   return 0;

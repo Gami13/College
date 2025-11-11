@@ -1,12 +1,10 @@
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
 // 19. Napisz funkcje:
 // int moje_strcmp(const char*, const char*);
 // char* moje_strcat(char*, const char*);
 // char* moje_strcpy(char*, const char*);
-// realizujące te same operacje co standardowe funkcje strcmp, strcat, strcpy z biblioteki <string.h>.
+// realizujace te same operacje co standardowe funkcje strcmp, strcat, strcpy z biblioteki <string.h>.
 static int moje_strcmp(const char *str1, const char *str2) {
   while (*str1 && (*str1 == *str2)) {
     str1++;
@@ -35,7 +33,7 @@ int main(void) {
   char str1[100] = "Hello, ";
   char str2[100] = "Hello, ";
   char str3[] = "world!";
-  printf("Porównanie: %d\n", moje_strcmp(str1, str2));
+  printf("Porownanie: %d\n", moje_strcmp(str1, str2));
   printf("Klejenie: %s\n", moje_strcat(str1, str3));
   printf("Kopiowanie: %s\n", moje_strcpy(str1, str3));
   return 0;

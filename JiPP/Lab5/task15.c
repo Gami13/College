@@ -1,8 +1,6 @@
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
-// 15. Zamień każde wystąpienie wybranego znaku na inny znak.
+// 15. Zamien kazde wystapienie wybranego znaku na inny znak.
 
 int main(void) {
   char text[] = "Hello, World!";

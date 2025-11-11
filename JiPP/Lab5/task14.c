@@ -1,8 +1,6 @@
-#define _USE_MATH_DEFINES
-#include <math.h>
 #include <stdbool.h>
 #include <stdio.h>
-// 14. Usuń z tekstu pierwsze wystąpienie wybranego znaku.
+// 14. Usun z tekstu pierwsze wystapienie wybranego znaku.
 
 int main(void) {
 
@@ -22,9 +20,9 @@ int main(void) {
     for (int i = position; text[i] != '\0'; i++) {
       text[i] = text[i + 1];
     }
-    printf("Tekst po usunięciu znaku: %s\n", text);
+    printf("Tekst po usunieciu znaku: %s\n", text);
   } else {
-    printf("Znak '%c' nie znaleziony w tekście.\n", target);
+    printf("Znak '%c' nie znaleziony w tekscie.\n", target);
   }
 
   return 0;
